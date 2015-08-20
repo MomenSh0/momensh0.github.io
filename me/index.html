@@ -7,10 +7,7 @@
   <title>Momen Sh</title>
 
   <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
   <style>
   .go-top {
   display: block;
@@ -79,7 +76,7 @@
         </div>
       </div>
     </div>
-    <div class="parallax"><img src="img/background.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="img/background.png" alt="Unsplashed background img 1"></div>
   </div>
 
   <div id="about" class="container">
@@ -235,6 +232,13 @@
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
+  <script src="js/loadCSS.min.js"></script>
+    <script>
+  loadCSS("https://fonts.googleapis.com/icon?family=Material+Icons");
+  loadCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+  loadCSS("css/materialize.css");
+  loadCSS("css/style.css");
+  </script>
 <script type="text/javascript">
     $(document).ready(function(){
     $('a[href^="#"]').on('click',function (e) {
