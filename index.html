@@ -1,12 +1,278 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Github Page</title>
-  <meta name="description" content="Momen Sh Github Page">
   <meta name="author" content="Momen Sh">
+  <meta name="description" conetnt="Momen Sh's personal website">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="icon" type="image/ico" href="img/favicon.ico">
+  <title>Momen Sh</title>
+
+  <!-- CSS  -->
+
+  <style>
+  .go-top {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  font-size: 30px;
+  position: fixed;
+  bottom: -40px;
+  right: 20px;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
+  background-color: #404040;
+  color: #FFFFFF;
+  text-decoration: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.go-top.show { bottom: 20px; }
+
+.go-top:hover {
+  background-color: #5DBA9D;
+  color: #FFFFFF;
+}
+
+  </style>
 </head>
-<body>
-<h1>Hello World !</h1>
-</body>
+<body id="top">
+<div class="navbar-fixed">
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#top" class="brand-logo"><span class="teal-text text-lighten-2">Momen Sh</span></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+		<li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#services">Services</a></li>
+		  <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div style="margin-top:5%" class="container">
+        <h1 class="header center teal-text text-lighten-2">Hello World !</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">Welcome to my website</h5>
+        </div>
+        <div style="margin-top: 9%;" class="row center">
+          <a href="#about" id="download-button" class="btn-large btn-floating waves-effect waves-light teal lighten-1"><i class="fa fa-chevron-down"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="img/background.png" alt="Unsplashed background img 1"></div>
+  </div>
+
+  <div id="about" class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3 class="teal-text text-darken-2"><i class="fa fa-user"></i></h3>
+          <h4>About Me</h4>
+          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <div id="services" class="row">
+          <div class="center">
+          <h3 class="teal-text text-darken-2"><i class="fa fa-paper-plane"></i></h3>
+          <h4>Services</h4>
+          </div>
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center red-text text-darken-2"><i class="fa fa-html5"></i></h2>
+            <h5 class="center">Web Development</h5>
+            <p class="light center">We did most of the heavy lifting</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center cyan-text text-darken-2"><i class="fa fa-wordpress"></i></h2>
+            <h5 class="center">Wordpress Themes</h5>
+            <p class="light center">By utilizing elements and principles of Material Design.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center green-text text-darken-2"><i class="fa fa-android"></i></h2>
+            <h5 class="center">Android Development</h5>
+            <p class="light center">We have provided detailed documentation.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="skills" class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3 class="teal-text text-darken-2"><i class="fa fa-code"></i></h3>
+          <h4>Skills</h4>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="portfolio" class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3 class="teal-text text-darken-2"><i class="fa fa-briefcase"></i></h3>
+          <h4>Portfolio</h4>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact" class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12 center">
+          <h3 class="teal-text text-darken-2"><i class="fa fa-paper-plane"></i></h3>
+          <h4>Contact Me</h4>
+          <div class="row">
+       <form action="" method="post" style="margin-left: 25%;margin-right:25%;" class="col s6">
+         <div class="row">
+           <div class="input-field col s12">
+             <input id="first_name" type="text" class="validate">
+             <label for="first_name">Name</label>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input id="email" type="email" class="validate">
+             <label for="email">Email</label>
+           </div>
+         </div>
+         <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Textarea</label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="fa fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+       </form>
+     </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+<a href="#top" class="go-to-top go-top btn-small btn-floating waves-effect waves-light teal lighten-1"><i class="fa fa-chevron-up"></i></a>
+<!-- <a href="#top" class="go-to-top go-top"><i class="fa fa-angle-up"></i></a>
+ -->
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/loadCSS.min.js"></script>
+    <script>
+  loadCSS("https://fonts.googleapis.com/icon?family=Material+Icons");
+  loadCSS("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+  loadCSS("css/materialize.min.css");
+  loadCSS("css/style.css");
+  </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('a[href^="#"]').on('click',function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+
+        $('html, body').stop().animate({
+            'scrollTop': $target.offset().top
+        }, 900, 'swing', function () {
+            window.location.hash = target;
+        });
+    });
+    });
+</script>
+<script>
+/*Add class when scroll down*/
+$(window).scroll(function(event){
+  	var scroll = $(window).scrollTop();
+    if (scroll >= 50) {
+        $(".go-top").addClass("show");
+    } else {
+        $(".go-top").removeClass("show");
+    }
+});
+/*Animation anchor*/
+$('.go-top-top').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top
+    }, 1000);
+});
+</script>
+  </body>
 </html>
