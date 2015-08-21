@@ -123,35 +123,37 @@
   <span>loading</span>
 </div>
 
-<div class="navbar-fixed">
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#top" class="brand-logo"><span class="teal-text text-lighten-2">Momen Sh</span></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#services">Services</a></li>
-		<li><a href="#skills">Skills</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact Me</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="side-nav">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#services">Services</a></li>
-		  <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact Me</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-</div>
   <div id="index-banner" class="parallax-container">
+
+      <div class="navbar-fixed">
+        <nav class="white" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="#top" class="brand-logo"><span class="teal-text text-lighten-2">Momen Sh</span></a>
+            <ul class="right hide-on-med-and-down">
+              <li id="aboutLink"><a href="#about">About Me</a></li>
+              <li id="servicesLink"><a href="#services">Services</a></li>
+      		<li id="skillsLink"><a href="#skills">Skills</a></li>
+              <li id="portfolioLink"><a href="#portfolio">Portfolio</a></li>
+              <li id="contactLink"><a href="#contact">Contact Me</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="side-nav">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#services">Services</a></li>
+      		  <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+      </div>
+
     <div class="section no-pad-bot">
       <div style="margin-top:5%" class="container">
         <h1 class="header center teal-text text-lighten-2">Hello World !</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Welcome to my website</h5>
+          <h5 class="header col s12 light">Welcome to my personal website</h5>
         </div>
         <div style="margin-top: 9%;" class="row center">
           <a href="#about" id="download-button" class="btn-large btn-floating waves-effect waves-light teal lighten-1"><i class="fa fa-chevron-down"></i></a>
@@ -309,6 +311,12 @@ $(document).ready(function(){
   loadCSS("files/css/style.css");
 </script>
 <script src="files/js/materialize.min.js"></script>
+<script src="files/js/jquery.waypoints.min.js"></script>
+<script type="text/javascript">
+$('#skills').waypoint(function() {
+    console.log('skills');
+});
+</script>
 <script src="files/js/init.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
