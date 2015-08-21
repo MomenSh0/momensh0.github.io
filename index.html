@@ -109,6 +109,36 @@
   font-size: 12px;
   text-align: center;
 }
+
+#skills span {
+    top: -30px;
+    left: 2%;
+    position: relative;
+    font-size: 1.4em;
+    font-weight: bolder;
+    font-family: monospace;
+    color: #fff;
+    line-height: 1;
+}
+
+progress {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 2.5em;
+    width: 100%;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #e0eaf0;
+}
+
+progress::-webkit-progress-value {
+    background-color: #26a69a;
+}
+
+progress::-moz-progress-bar {
+    background-color: #329ad1;
+}
   </style>
 </head>
 <body id="top">
@@ -189,7 +219,7 @@
           <div class="icon-block">
             <h2 class="center red-text text-darken-2"><i class="fa fa-html5"></i></h2>
             <h5 class="center">Web Development</h5>
-            <p class="light center">We did most of the heavy lifting</p>
+            <!-- <p class="light center">We did most of the heavy lifting</p> -->
           </div>
         </div>
 
@@ -197,39 +227,39 @@
           <div class="icon-block">
             <h2 class="center cyan-text text-darken-2"><i class="fa fa-wordpress"></i></h2>
             <h5 class="center">Wordpress Themes</h5>
-            <p class="light center">By utilizing elements and principles of Material Design.</p>
+            <!-- <p class="light center">By utilizing elements and principles of Material Design.</p> -->
+          </div>
+        </div>
+
+        <div class="col s12 m4 coming-soon">
+          <div class="icon-block">
+            <h2 class="center green-text text-darken-2"><i class="fa fa-wordpress"></i></h2>
+            <h5 class="center">Wordpress Plugins</h5>
+            <!-- <p class="light center">We have provided detailed documentation.</p> -->
           </div>
         </div>
 
         <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center red-text text-darken-2"><i class="fa fa-cogs"></i></h2>
+            <h5 class="center">Custom Management Tools</h5>
+            <!-- <p class="light center">We did most of the heavy lifting</p> -->
+          </div>
+        </div>
+
+        <div class="col s12 m4 coming-soon">
+          <div class="icon-block">
+            <h2 class="center cyan-text text-darken-2"><i class="fa fa-desktop"></i></h2>
+            <h5 class="center">Desktop Applications</h5>
+            <!-- <p class="light center">By utilizing elements and principles of Material Design.</p> -->
+          </div>
+        </div>
+
+        <div class="col s12 m4 coming-soon">
           <div class="icon-block">
             <h2 class="center green-text text-darken-2"><i class="fa fa-android"></i></h2>
-            <h5 class="center">Android Development</h5>
-            <p class="light center">We have provided detailed documentation.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center red-text text-darken-2"><i class="fa fa-html5"></i></h2>
-            <h5 class="center">Web Development</h5>
-            <p class="light center">We did most of the heavy lifting</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center cyan-text text-darken-2"><i class="fa fa-wordpress"></i></h2>
-            <h5 class="center">Wordpress Themes</h5>
-            <p class="light center">By utilizing elements and principles of Material Design.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center green-text text-darken-2"><i class="fa fa-android"></i></h2>
-            <h5 class="center">Android Development</h5>
-            <p class="light center">We have provided detailed documentation.</p>
+            <h5 class="center">Android Applications</h5>
+            <!-- <p class="light center">We have provided detailed documentation.</p> -->
           </div>
         </div>
 
@@ -243,7 +273,14 @@
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-code"></i></h3>
           <h4>Skills</h4>
-
+            <section id="skills_progress">
+                <progress value="95" max="100"></progress><span>HTML/HTML5</span>
+                <progress value="90" max="100"></progress><span>CSS3</span>
+                <progress value="75" max="100"></progress><span>JavaScript/jQuery</span>
+                <progress value="70" max="100"></progress><span>PHP/MySQL</span>
+                <progress value="75" max="100"></progress><span>Python</span>
+                <progress value="55" max="100"></progress><span>Java/Android</span>
+            </section>
         </div>
       </div>
     </div>
@@ -336,8 +373,18 @@ $(document).ready(function(){
 <script src="files/js/materialize.min.js"></script>
 <script src="files/js/jquery.waypoints.min.js"></script>
 <script type="text/javascript">
+var an = 0;
 $('#skills').waypoint(function() {
-    console.log('skills');
+    //console.log('skills');
+    $(function() {
+        $('#skills_progress progress').each(function() {
+            if(an < 6){
+                var max = $(this).val();
+                $(this).val(0).animate({ value: max }, { duration: 2000, easing: 'easeOutCirc' });
+                an++;
+            }
+        });
+    });
 });
 </script>
 <script src="files/js/init.js"></script>
