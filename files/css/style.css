@@ -6,6 +6,10 @@
  * Made By MaterializeCSS.com
  */
 
+ .hoverBG {
+     background-color: rgba(0,0,0,0.1);
+ }
+
 #index-banner {
     background-color: rgba(0, 0, 0, 0.3);
 }
