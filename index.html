@@ -141,7 +141,7 @@ progress::-moz-progress-bar {
 }
   </style>
 </head>
-<body id="top">
+<body id="top" class="scrollspy">
 
     <div class="loading">
   <div>
@@ -172,19 +172,19 @@ progress::-moz-progress-bar {
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact Me</a></li>
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
     </div>
   </nav>
 </div>
 
   <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
+    <div class="header-text section no-pad-bot">
       <div style="margin-top:5%" class="container">
         <h1 class="header center teal-text text-lighten-2">Hello World !</h1>
         <div class="row center">
           <h5 class="header col s12 light">Welcome to my personal website</h5>
         </div>
-        <div style="margin-top: 9%;" class="row center">
+        <div class="header-arrow row center">
           <a href="#about" id="download-button" class="btn-large btn-floating waves-effect waves-light teal lighten-1"><i class="fa fa-chevron-down"></i></a>
         </div>
       </div>
@@ -192,13 +192,13 @@ progress::-moz-progress-bar {
     <div class="parallax"><img src="files/img/background-3.png" alt="Unsplashed background img 1"></div>
   </div>
 
-  <div id="about" class="container">
+  <div id="about" class="container scrollspy">
     <div class="section">
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-user"></i></h3>
           <h4>About Me</h4>
-          <img style="border-radius:50%;" src="files/img/me.jpg" alt="" />
+          <img class="circle responsive-img" src="files/img/me.jpg" alt="" />
           <p style="font-size:1.3rem;" class="center-align light">
               Momen Shehada, 20 years old, Palestinian, Code Geek, Web Developer, and Wordpress themes developer. Work as a freelancer<br>
               <a href="https://twitter.com/MomenSh0" target="_blank">Follow Me <i class="fa fa-twitter"></i></a>
@@ -208,7 +208,7 @@ progress::-moz-progress-bar {
     </div>
   </div>
 
-  <div id="services" class="container">
+  <div id="services" class="container scrollspy">
     <div class="section">
       <div class="row">
           <div class="center">
@@ -267,7 +267,7 @@ progress::-moz-progress-bar {
     </div>
   </div>
 
-  <div id="skills" class="container">
+  <div id="skills" class="container scrollspy">
     <div class="section">
       <div class="row">
         <div class="col s12 center">
@@ -277,8 +277,8 @@ progress::-moz-progress-bar {
                 <progress value="95" max="100"></progress><span>HTML/HTML5</span>
                 <progress value="90" max="100"></progress><span>CSS3</span>
                 <progress value="75" max="100"></progress><span>JavaScript/jQuery</span>
-                <progress value="70" max="100"></progress><span>PHP/MySQL</span>
-                <progress value="75" max="100"></progress><span>Python</span>
+                <progress value="75" max="100"></progress><span>PHP/MySQL</span>
+                <progress value="70" max="100"></progress><span>Python</span>
                 <progress value="55" max="100"></progress><span>Java/Android</span>
             </section>
         </div>
@@ -286,26 +286,49 @@ progress::-moz-progress-bar {
     </div>
   </div>
 
-  <div id="portfolio" class="container">
+  <div id="portfolio" class="container scrollspy">
     <div class="section">
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-briefcase"></i></h3>
           <h4>Portfolio</h4>
-
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
+          <div class="col l3 m6 s12">
+              <img class="materialboxed responsive-img" data-caption="Caption of the image" src="http://placehold.it/350x350">
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="contact" class="container">
+  <div id="contact" class="container scrollspy">
     <div class="section">
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-paper-plane"></i></h3>
           <h4>Contact Me</h4>
           <div class="row">
-       <form action="" method="post" style="margin-left: 25%;margin-right:25%;" class="col s6">
+       <form class="contact-form" action="" method="post" class="col s6">
          <div class="row">
            <div class="input-field col s12">
              <input id="first_name" type="text" class="validate">
@@ -388,22 +411,6 @@ $('#skills').waypoint(function() {
 });
 </script>
 <script src="files/js/init.js"></script>
-<script type="text/javascript">
-    $(document).ready(function(){
-    $('a[href^="#"]').on('click',function (e) {
-        e.preventDefault();
-
-        var target = this.hash;
-        var $target = $(target);
-
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
-        }, 900, 'swing', function () {
-            window.location.hash = target;
-        });
-    });
-    });
-</script>
 <script>
 /*Add class when scroll down*/
 $(window).scroll(function(event){
