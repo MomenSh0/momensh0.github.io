@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <link rel="icon" type="image/ico" href="../files/img/favicon.ico">
   <title>Momen Sh</title>
-  <!--<link rel="stylesheet" href="../files/css/style.css" media="screen" title="no title" charset="utf-8"> -->
+  <link rel="stylesheet" href="css/rtl.css">
 
   <!-- CSS  -->
   <style>
@@ -157,26 +157,32 @@ progress::-moz-progress-bar {
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#top" class="brand-logo"><span class="teal-text text-lighten-2">Momen Sh</span></a>
-      <ul class="right hide-on-med-and-down">
-        <li id="aboutLink"><a href="#about">About Me</a></li>
-        <li id="servicesLink"><a href="#services">Services</a></li>
-      <li id="skillsLink"><a href="#skills">Skills</a></li>
-        <li id="portfolioLink"><a href="#portfolio">Portfolio</a></li>
-        <li id="contactLink"><a href="#contact">Contact Me</a></li>
-        <li><a class="dropdown-button" href="#" data-activates='dropdown1'>Language</a></li>
+      <ul class="left main-nav hide-on-med-and-down">
+        <li id="aboutLink"><a href="#about">من أنا</a></li>
+        <li id="servicesLink"><a href="#services">خدماتي</a></li>
+      <li id="skillsLink"><a href="#skills">مهاراتي</a></li>
+        <li id="portfolioLink"><a href="#portfolio">معرض الأعمال</a></li>
+        <li id="contactLink"><a href="#contact">تواصل معي</a></li>
+        <li><a class="dropdown-button" href="#" data-activates='dropdown1'>اللغة</a></li>
         <!-- Languages dropdown -->
         <ul id='dropdown1' class='dropdown-content'>
-          <li><a href="http://momensh.me/ar">Arabic</a></li>
-          <li><a href="http://momensh.me">English</a></li>
+          <li><a href="http://momensh.me/ar">العربية</a></li>
+          <li><a href="http://momensh.me">الإنجليزية</a></li>
         </ul>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#services">Services</a></li>
-        <li><a href="#skills">Skills</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact Me</a></li>
+          <li><a href="#about">من أنا</a></li>
+          <li><a href="#services">خدماتي</a></li>
+        <li><a href="#skills">مهاراتي</a></li>
+          <li><a href="#portfolio">معرض الأعمال</a></li>
+          <li><a href="#contact">تواصل معي</a></li>
+          <li><a class="dropdown-button" href="#" data-activates='dropdown2'>اللغة</a></li>
+          <!-- Languages dropdown -->
+          <ul id='dropdown2' class='dropdown-content'>
+            <li><a href="http://momensh.me/ar">العربية</a></li>
+            <li><a href="http://momensh.me">الإنجليزية</a></li>
+          </ul>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars"></i></a>
     </div>
@@ -186,9 +192,9 @@ progress::-moz-progress-bar {
   <div id="index-banner" class="parallax-container">
     <div class="header-text section no-pad-bot">
       <div style="margin-top:5%; width:90% !important" class="container">
-        <h1 class="header center teal-text text-lighten-2">Hello World !</h1>
+        <h1 class="header center teal-text text-lighten-2">! Hello World</h1>
         <div class="row center">
-          <h5 class="header col s12 light">Welcome to my personal website</h5>
+          <h5 class="header col s12 light">أهلاً بكم في موقعي الشخصي</h5>
         </div>
         <div class="header-arrow row center">
           <a href="#about" id="download-button" class="btn-large btn-floating waves-effect waves-light teal lighten-1"><i class="fa fa-chevron-down"></i></a>
@@ -203,11 +209,11 @@ progress::-moz-progress-bar {
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-user"></i></h3>
-          <h4>About Me</h4>
+          <h4>من أنا</h4>
           <img class="circle responsive-img" src="../files/img/me.jpg" alt="" />
           <p style="font-size:1.3rem;" class="center-align light">
-              Momen Shehada, 20 years old, Palestinian, Code Geek, Web Developer, and Wordpress themes developer. Work as a freelancer<br>
-              <a href="https://twitter.com/MomenSh0" target="_blank">Follow Me <i class="fa fa-twitter"></i></a>
+              مؤمن شحادة, 20 سنة, فلسطيني, مطور ويب ومطور قوالب ووردبريس. أعمل كفري لانسر.<br>
+              <a href="https://twitter.com/MomenSh0" target="_blank">تابعني <i class="fa fa-twitter"></i></a>
           </p>
         </div>
       </div>
@@ -219,12 +225,12 @@ progress::-moz-progress-bar {
       <div class="row">
           <div class="center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-paper-plane"></i></h3>
-          <h4>Services</h4>
+          <h4>خدماتي</h4>
           </div>
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center red-text text-darken-2"><i class="fa fa-html5"></i></h2>
-            <h5 class="center">Web Development</h5>
+            <h5 class="center">تمصيم و برمجة المواقع</h5>
             <!-- <p class="light center">We did most of the heavy lifting</p> -->
           </div>
         </div>
@@ -232,7 +238,7 @@ progress::-moz-progress-bar {
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center cyan-text text-darken-2"><i class="fa fa-wordpress"></i></h2>
-            <h5 class="center">Wordpress Themes</h5>
+            <h5 class="center">قوالب ووردبريس</h5>
             <!-- <p class="light center">By utilizing elements and principles of Material Design.</p> -->
           </div>
         </div>
@@ -240,7 +246,7 @@ progress::-moz-progress-bar {
         <div class="col s12 m4 coming-soon">
           <div class="icon-block">
             <h2 class="center green-text text-darken-2"><i class="fa fa-wordpress"></i></h2>
-            <h5 class="center">Wordpress Plugins</h5>
+            <h5 class="center">إضافات ووردبريس</h5>
             <!-- <p class="light center">We have provided detailed documentation.</p> -->
           </div>
         </div>
@@ -248,7 +254,7 @@ progress::-moz-progress-bar {
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center red-text text-darken-2"><i class="fa fa-cogs"></i></h2>
-            <h5 class="center">Custom Management Tools</h5>
+            <h5 class="center">أدوات إدارية مخصصة</h5>
             <!-- <p class="light center">We did most of the heavy lifting</p> -->
           </div>
         </div>
@@ -256,7 +262,7 @@ progress::-moz-progress-bar {
         <div class="col s12 m4 coming-soon">
           <div class="icon-block">
             <h2 class="center cyan-text text-darken-2"><i class="fa fa-desktop"></i></h2>
-            <h5 class="center">Desktop Applications</h5>
+            <h5 class="center">برامج الحاسوب</h5>
             <!-- <p class="light center">By utilizing elements and principles of Material Design.</p> -->
           </div>
         </div>
@@ -264,7 +270,7 @@ progress::-moz-progress-bar {
         <div class="col s12 m4 coming-soon">
           <div class="icon-block">
             <h2 class="center green-text text-darken-2"><i class="fa fa-android"></i></h2>
-            <h5 class="center">Android Applications</h5>
+            <h5 class="center">تطبيقات الأندرويد</h5>
             <!-- <p class="light center">We have provided detailed documentation.</p> -->
           </div>
         </div>
@@ -278,7 +284,7 @@ progress::-moz-progress-bar {
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-code"></i></h3>
-          <h4>Skills</h4>
+          <h4>مهاراتي</h4>
             <section id="skills_progress">
                 <progress value="95" max="100"></progress><span>HTML/HTML5</span>
                 <progress value="90" max="100"></progress><span>CSS3</span>
@@ -297,7 +303,7 @@ progress::-moz-progress-bar {
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-briefcase"></i></h3>
-          <h4>Portfolio</h4>
+          <h4>معرض الأعمال</h4>
           <div class="col l4 m6 s12">
             <div class="card">
               <div class="card-image">
@@ -305,13 +311,13 @@ progress::-moz-progress-bar {
                 <span class="card-title teal-text text-lighten-2">MaterialMe</span>
               </div>
               <div class="card-content">
-                  <p>A one page material design HTML template for personal websites.</p>
+                  <p>قالب صفحة واحدة بتصميم Material Design للمواقع الشخصية.</p>
                   <p>Front-end</p>
-                  <p>English and Arabic</p>
+                  <p>العربية و الإنجليزية</p>
                   <p>Google PageSpeed: 90/100</p>
               </div>
               <div class="card-action">
-                <a class="teal-text text-lighten-2" href="#" target="_blank">Preview</a>
+                <a class="teal-text text-lighten-2" href="#" target="_blank">إستعراض</a>
               </div>
             </div>
           </div>
@@ -322,13 +328,13 @@ progress::-moz-progress-bar {
                 <span class="card-title teal-text text-lighten-2">MaterialCo</span>
               </div>
               <div class="card-content">
-                  <p>A one page material design HTML template for companies.</p>
+                  <p>قالب صفحة واحدة بتصميم Material Design لمواقع الشركات.</p>
                   <p>Front-end</p>
-                  <p>English and Arabic</p>
+                  <p>العربية و الإنجليزية</p>
                   <p>Google PageSpeed: 000/100</p>
               </div>
               <div class="card-action">
-                <a class="teal-text text-lighten-2" href="#" target="_blank">Preview</a>
+                <a class="teal-text text-lighten-2" href="#" target="_blank">إستعراض</a>
               </div>
             </div>
           </div>
@@ -339,13 +345,13 @@ progress::-moz-progress-bar {
                 <span class="card-title teal-text text-lighten-2">Movies Center</span>
               </div>
               <div class="card-content">
-                <p>A simple CMS for sharing movies, built with PHP and JSON.</p>
+                <p>نظام إدارة محتوى بسيط لنشر الأفلام, مبني بواسطة PHP و JSON.</p>
                 <p>Front and back-end</p>
-                <p>English and Arabic</p>
+                <p>العربية و الإنجليزية</p>
                 <p>Google PageSpeed: 100/100</p>
               </div>
               <div class="card-action">
-                <a class="teal-text text-lighten-2" target="_blank">Preview</a>
+                <a class="teal-text text-lighten-2" target="_blank">إستعراض</a>
               </div>
             </div>
           </div>
@@ -356,13 +362,13 @@ progress::-moz-progress-bar {
                 <span class="card-title teal-text text-lighten-2">HR System</span>
               </div>
               <div class="card-content">
-                  <p>A custom HR System built for NCCR Gaza.</p>
-                  <p>Custom Management Tool</p>
-                  <p>Arabic</p>
+                  <p>نظام إدارة شؤون موظفين مخصص, تم إنشائه لصالح مؤسسة NCCR Gaza.</p>
+                  <p>أدوات إدارية مخصصة</p>
+                  <p>العربية</p>
                   <p class="white-text no-select">Google PageSpeed: 000/000</p>
               </div>
               <div class="card-action">
-                <a class="teal-text text-lighten-2" href="#" target="_blank">Preview</a>
+                <a class="teal-text text-lighten-2" href="#" target="_blank">إستعراض</a>
               </div>
             </div>
           </div>
@@ -373,13 +379,13 @@ progress::-moz-progress-bar {
                 <span class="card-title teal-text text-lighten-2">MDBlog</span>
               </div>
               <div class="card-content">
-                  <p>A material design Wordpress theme, built with Materialize framework.</p>
-                  <p>Wordpress Theme</p>
-                  <p>English and Arabic</p>
+                  <p>قالب ووردبريس بتصميم Material Design, تم إنشائه بواسطة مكتبة Materialize.</p>
+                  <p>قالب ووردبريس</p>
+                  <p>العربية و الإنجليزية</p>
                   <p class="white-text no-select">Google PageSpeed: 100/100</p>
               </div>
               <div class="card-action">
-                <a class="teal-text text-lighten-2" target="_blank">Coming Soon</a>
+                <a class="teal-text text-lighten-2" target="_blank">قريباً</a>
               </div>
             </div>
           </div>
@@ -390,13 +396,13 @@ progress::-moz-progress-bar {
                 <span class="card-title teal-text text-lighten-2">ROMs Center</span>
               </div>
               <div class="card-content">
-                  <p>A simple CMS to index Android ROMs, built with PHP and MYSQL.</p>
+                  <p>نظام إدارة محتوى بسيط لنشر رومات الأندرويد, مبني بواسطة PHP و MYSQL.</p>
                   <p>Front and back-end</p>
-                  <p>English and Arabic</p>
+                  <p>العربية و الإنجليزية</p>
                   <p class="white-text no-select">Google PageSpeed: 100/100</p>
               </div>
               <div class="card-action">
-                <a class="teal-text text-lighten-2" target="_blank">Coming Soon</a>
+                <a class="teal-text text-lighten-2" target="_blank">قريباً</a>
               </div>
             </div>
           </div>
@@ -410,30 +416,30 @@ progress::-moz-progress-bar {
       <div class="row">
         <div class="col s12 center">
           <h3 class="teal-text text-darken-2"><i class="fa fa-paper-plane"></i></h3>
-          <h4>Contact Me</h4>
+          <h4>تواصل معي</h4>
           <div class="row">
        <form class="contact-form" action="" method="post" class="col s6">
          <div class="row">
            <div class="input-field col s12">
              <input id="first_name" type="text" class="validate">
-             <label for="first_name">Name</label>
+             <label class="right-align" for="first_name">الإسم</label>
            </div>
          </div>
          <div class="row">
            <div class="input-field col s12">
              <input id="email" type="email" class="validate">
-             <label for="email">Email</label>
+             <label class="right-align" for="email">البريد الإلكتروني</label>
            </div>
          </div>
          <div class="row">
           <div class="input-field col s12">
             <textarea id="textarea1" class="materialize-textarea"></textarea>
-            <label for="textarea1">Textarea</label>
+            <label class="right-align" for="textarea1">الرسالة</label>
           </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <button class="btn waves-effect waves-light" type="submit" name="action">إرسال
                   <i class="fa fa-paper-plane"></i>
                 </button>
             </div>
@@ -449,7 +455,7 @@ progress::-moz-progress-bar {
     <div class="container">
       <div class="row">
         <div class="col s12">
-            <h5 style="font-size:1.2rem;" class="white-text center">"I'm not what happened to me, I'm what I choose to become."</h5>
+            <h5 style="font-size:1.2rem;" class="white-text center">"I'm not what happened to me, I'm what I choose to become"</h5>
         </div>
 
       </div>
