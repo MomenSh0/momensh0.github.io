@@ -1,0 +1,27 @@
+html,body {
+    direction: rtl;
+}
+
+.main-nav {
+    display: flex;
+}
+
+.input-field label {
+    right: 0.75rem;
+}
+
+.row .col {
+    float: right !important;
+}
+
+.card .card-image .card-title {
+    right: 0;
+    left: inherit !important;
+}
+
+.cd-light.cd-testimonials-wrapper {
+    direction: initial;
+}
+.cd-testimonials p {
+    font-size: 1.3rem !important;
+}
