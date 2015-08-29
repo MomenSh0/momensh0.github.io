@@ -1,3 +1,29 @@
+#skills span {
+    top: -30px;
+    left: 2%;
+    position: relative;
+    font-size: 1.4em;
+    font-weight: bolder;
+    font-family: monospace;
+    color: #fff;
+    line-height: 1;
+}
+progress {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 2.5em;
+    width: 100%;
+}
+progress::-webkit-progress-bar {
+    background-color: #e0eaf0;
+}
+progress::-webkit-progress-value {
+    background-color: #26a69a;
+}
+progress::-moz-progress-bar {
+    background-color: #329ad1;
+}
+
  .hoverBG {
      background-color: rgba(0,0,0,0.1);
  }
