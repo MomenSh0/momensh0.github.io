@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Game</title>
+    <meta charset="utf-8" /> 
+    <link rel="stylesheet" href="css/custom.css" />
+    
+    <script src="js/jquery-3.1.1.min.js"></script>
+    
+    <script src="js/three.js"></script>
+    <script src="js/TrackballControls.js"></script>
+    <script src="js/ObjectLoader.js"></script>
+    <script src="js/custom.js"></script>
+    
+</head>
+
+<body>
+    <div style="cursor:none" id="output"></div>
+    <div style="position: fixed;
+    top: 0;
+    left: 0;
+    background-color: red;
+    padding: 10px;
+    font-size: 30px;
+    color: white;">Top Score: <span id="topScore">0</span></div>
+    
+    <div style="position: fixed;
+    top: 0;
+    right: 0;
+    background-color: green;
+    padding: 10px;
+    font-size: 30px;
+    color: white;">Score: <span id="score">0</span></div>
+    
+    <div id="newHighScoreText" style="position: fixed;
+    display: none;
+    top: 54px;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);;
+    padding: 10px 18px;
+    font-size: 15px;
+    color: black;">New High Score !</div>
+    
+    <div style="display:none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.47);
+    position: fixed;
+    top: 0;
+    text-align: center;
+    padding-top: 15%;
+    font-size: 50px;
+    " id="gameOver"><a id="gameOverText" style="text-decoration:none;color:red;" href="javascript:location.reload();">gameOver</a></div>
+    
+    <div style="display:none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.47);
+    position: fixed;
+    top: 0;
+    text-align: center;
+    padding-top: 15%;
+    font-size: 50px;
+    " id="newHighScore"><a style="text-decoration:none;color:green;" href="javascript:location.reload();">newHighScore</a></div>
+</body>
+
+</html>
