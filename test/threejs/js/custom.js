@@ -90,7 +90,7 @@ function init() {
     
     function createNewStone(){
         stoneGeo = new THREE.SphereGeometry(4);
-        stoneMat = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/rock-fire.jpg"), side: THREE.DoubleSide, transparent: true , opacity: 0});
+        stoneMat = new THREE.MeshLambertMaterial(0xacacac);
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
