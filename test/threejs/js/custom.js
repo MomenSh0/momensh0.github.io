@@ -37,7 +37,7 @@ function init() {
         average: 1,
         hard: 2
     }
-    difficulty = difficulties.easy;
+    difficulty = difficulties.average;
     var stoneZIncreaseMin;
     var stoneZIncreaseMax;
     
