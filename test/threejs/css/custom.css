@@ -1,10 +1,84 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(Roboto-Regular.ttf);
+}
 * {
     padding: 0;
     margin: 0;
 }
-
 body,
 html {
     overflow-x: hidden;
     overflow-y: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+#gameStartUI {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/main_bg_2.jpg');
+    z-index: 10;
+    text-align: center;
+}
+#gameStartUI h1:first-of-type {
+    color: rgba(106, 23, 197, 0.79);
+}
+#gameStartUI h1 {
+    color: white;
+    padding: 20px;
+    //padding-top: 5%;
+}
+#gameStartUI .buttons {
+    text-align: center;
+    margin-top: 2%
+}
+.button {
+    display: block;
+    cursor: pointer;
+    color: white;
+    background-color: #2a094e;
+    width: 10%;
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 14px;
+    font-size: 20px;
+    margin-top: 1%;
+    border: 1px solid #5805ff;
+    transition: background-color 0.5s;
+}
+.button:hover {
+    background-color: #1e0638;
+}
+
+#gameStartUI .instructions {
+    color: white;
+    display: inline-block;
+    margin-top: 5%;
+}
+#gameStartUI .instructions p {
+    text-align: left;
+    font-size: 20px;
+}
+
+
+#gameStartUI #UI2 {
+    display: none;
+    padding-top: 50px;
+}
+#gameStartUI #UI2 h2 {
+    color: white;
+    margin-bottom: 15px
+}
+#gameStartUI #UI2 input {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #5805ff;
+    border-radius: 20px;  
+}
+#gameStartUI #UI2 .button {
+    margin-bottom: 10px;
+}
+#backBtn {
+    color: white;
+    cursor: pointer;
 }
