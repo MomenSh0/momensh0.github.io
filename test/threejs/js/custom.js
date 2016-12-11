@@ -271,10 +271,11 @@ function init() {
 
                     if(intersect.length > 0 && intersect[0].distance < direction.length()){
                         isDead = true;
-                        new Audio('audio/boom.mp3').play();
+                        
                         //console.log("Dead")
                     }
                     if(isDead){
+                        new Audio('audio/boom.mp3').play();
                         gameOver = true;
                         gameOverText = "Game Over ! <br/>";
                         if (parseInt(score) > topScore) {
