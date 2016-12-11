@@ -271,6 +271,7 @@ function init() {
 
                     if(intersect.length > 0 && intersect[0].distance < direction.length()){
                         isDead = true;
+                        new Audio('audio/boom.mp3').play();
                         //console.log("Dead")
                     }
                     if(isDead){
