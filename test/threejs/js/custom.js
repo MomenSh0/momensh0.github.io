@@ -113,8 +113,8 @@ function init() {
     }
     scene.add(stonesGroup);
     
-    stoneGeo = new THREE.SphereGeometry(4);
-    stoneMat = new THREE.MeshLambertMaterial({
+    var stoneGeo = new THREE.SphereGeometry(4);
+    var stoneMat = new THREE.MeshLambertMaterial({
         map: new THREE.TextureLoader().load("img/rock-fire-2.jpg"),
         side: THREE.DoubleSide,
         transparent: true,
