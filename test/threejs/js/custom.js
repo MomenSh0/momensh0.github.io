@@ -106,12 +106,6 @@ function init() {
     
     stonesCount = 200;
     stonesGroup = new THREE.Object3D();
-    for (i = 0 ; i < stonesCount ; i++){
-        stone = createNewStone();
-
-        stonesGroup.add(stone);
-    }
-    scene.add(stonesGroup);
     
     var stoneGeo = new THREE.SphereGeometry(4);
     var stoneMat = new THREE.MeshLambertMaterial({
@@ -120,7 +114,15 @@ function init() {
         transparent: true,
         opacity: 0
     });
-    function createNewStone(){
+    
+    for (i = 0 ; i < stonesCount ; i++){
+        stone = createNewStone(stoneGeo, stoneMat);
+
+        stonesGroup.add(stone);
+    }
+    scene.add(stonesGroup);
+    
+    function createNewStone(stoneGeo, stoneMat){
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
