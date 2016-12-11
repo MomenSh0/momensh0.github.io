@@ -2,21 +2,66 @@
 <html>
 <head>
     <title>Game</title>
-    <meta charset="utf-8" /> 
+    <meta charset="utf-8" />    
     <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="css/animations.css">
+    
+    <script>
+        gameStarted = false;
+        var difficulty;
+    </script>
     
     <script src="js/jquery-3.1.1.min.js"></script>
-    
-    <script src="js/three.js"></script>
+
+    <script src="js/three.min.js"></script>
     <script src="js/TrackballControls.js"></script>
     <script src="js/ObjectLoader.js"></script>
     <script src="js/custom.js"></script>
     
+        <script src="js/scripts.js"></script>
+
 </head>
 
 <body>
+    <div id="gameStartUI" class="">
+        <div id="UI1" class="floating">
+            <h1 class="">Spaceship Fighter</h1>
+            <h1 class="">Welcome, Captain !</h1>
+            <div class="buttons">
+                <div id="startBtn" class="button">Start</div>
+                <div id="leaderboardBtn" class="button">Leaderboard<span style="font-size:10px;color:#00ff39"> Soon</span></div>
+            </div>
+        </div>
+        <div id="UI2" class="floating">
+            <h2>Enter your name:</h2>
+            <input id="nameInput" type="text">
+            <p class="nameWarning" style="color:red;display:none">Please enter a name</p>
+            <div style="margin-top:10px;color:white">
+                <input type="radio" name="difficulty" value="0" checked> Easy
+                <input type="radio" name="difficulty" value="1"> Average
+                <input type="radio" name="difficulty" value="2"> Hard
+            </div>
+            <div id="gameStartBtn" class="button">Go !</div>
+            <span id="backBtn">back</span>
+        </div>
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>- Use your mouse to control the spaceship.</p>
+            <p>- Press 'C' to change camera mode.</p>
+            <p>- Press 'F' to turn spaceships light on/off.</p>
+            <p>- Press 'M' to mute all sounds.</p>
+            <p>- Press 'N' to mute music only.</p>
+            <p>- The game has 3 difficulty modes (Easy, Average, Hard).</p>
+            <p>- Click start to play and enter your name to save your score.</p>
+        </div>
+    </div>
+    <div class="bottomInstructions" style="display:none;position: fixed;
+    bottom: 0px;
+    left: 0px;
+    color: black;
+    background-color: white;">C: change camera mode | F: turn spaceships light on/off | M: mute all sounds | N: mute music only</div>
     <div style="cursor:none" id="output"></div>
-    <div style="position: fixed;
+    <div class="scores" style="display:none;position: fixed;
     top: 0;
     left: 0;
     background-color: red;
@@ -24,7 +69,7 @@
     font-size: 30px;
     color: white;">Top Score: <span id="topScore">0</span></div>
     
-    <div style="position: fixed;
+    <div class="scores" style="display:none;position: fixed;
     top: 0;
     right: 0;
     background-color: green;
