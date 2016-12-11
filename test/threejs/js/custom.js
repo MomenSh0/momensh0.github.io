@@ -37,7 +37,7 @@ function init() {
         average: 1,
         hard: 2
     }
-    difficulty = difficulties.average;
+    difficulty = difficulties.easy;
     var stoneZIncreaseMin;
     var stoneZIncreaseMax;
     
@@ -106,23 +106,22 @@ function init() {
     
     stonesCount = 200;
     stonesGroup = new THREE.Object3D();
-    
-    var stoneGeo = new THREE.SphereGeometry(4);
     var stoneMat = new THREE.MeshLambertMaterial({
-        map: new THREE.TextureLoader().load("img/rock-fire-2.jpg"),
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0
-    });
+            map: new THREE.TextureLoader().load("img/rock-fire-2.jpg"),
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0
+        });
     
     for (i = 0 ; i < stonesCount ; i++){
-        stone = createNewStone(stoneGeo, stoneMat);
+        stone = createNewStone();
 
         stonesGroup.add(stone);
     }
     scene.add(stonesGroup);
     
-    function createNewStone(stoneGeo, stoneMat){
+    function createNewStone(){
+        stoneGeo = new THREE.SphereGeometry(4);
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
