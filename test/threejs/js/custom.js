@@ -274,10 +274,6 @@ function init() {
                         //console.log("Dead")
                     }
                     if(isDead){
-                        boom = new Audio('audio/boom.mp3').play();
-                        boom.addEventListener("ended", function(){
-                            boom.pause();
-                        });
                         gameOver = true;
                         gameOverText = "Game Over ! <br/>";
                         if (parseInt(score) > topScore) {
@@ -291,6 +287,10 @@ function init() {
                         $("#gameOverText").html(gameOverText)
                         //document.getElementById("gameOverText").innerHTML = gameOverText;
                         //console.log("Score: "+parseInt(score))
+                        boom = new Audio('audio/boom.mp3').play();
+                        boom.addEventListener("ended", function(){
+                            boom.pause();
+                        });
                     }
                 }
             },1000);
