@@ -1,7 +1,7 @@
 function init() {
     var scene = new THREE.Scene();
     
-    scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.001 );
+    scene.fog = new THREE.FogExp2(0x000000,0.001);
     
     var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     cameraOrigianPosition = {x: 0, y: 10, z: -200}
