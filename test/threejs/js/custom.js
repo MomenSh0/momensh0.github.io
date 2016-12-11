@@ -1,7 +1,7 @@
 function init() {
     var scene = new THREE.Scene();
     
-   //scene.fog = new THREE.Fog(0x1c1c1c, 0.015, 300);
+   scene.fog = new THREE.Fog(0x1c1c1c, 0.015, 300);
     
     var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     cameraOrigianPosition = {x: 0, y: 10, z: -200}
@@ -37,7 +37,7 @@ function init() {
         average: 1,
         hard: 2
     }
-    difficulty = difficulties.easy;
+    difficulty = difficulties.hard;
     var stoneZIncreaseMin;
     var stoneZIncreaseMax;
     
@@ -112,7 +112,8 @@ function init() {
 //            transparent: true,
 //            opacity: 0
         });
-    
+    var stoneGeo = new THREE.SphereGeometry(4);
+
     for (i = 0 ; i < stonesCount ; i++){
         stone = createNewStone();
 
@@ -121,7 +122,6 @@ function init() {
     scene.add(stonesGroup);
     
     function createNewStone(){
-        stoneGeo = new THREE.SphereGeometry(4);
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
