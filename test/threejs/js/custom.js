@@ -1,7 +1,7 @@
 function init() {
     var scene = new THREE.Scene();
     
-    scene.fog = new THREE.FogExp2(0x000000,0.001);
+   //scene.fog = new THREE.Fog(0x1c1c1c, 0.015, 300);
     
     var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     cameraOrigianPosition = {x: 0, y: 10, z: -200}
@@ -112,8 +112,7 @@ function init() {
 //            transparent: true,
 //            opacity: 0
         });
-    var stoneGeo = new THREE.SphereGeometry(4);
-
+    
     for (i = 0 ; i < stonesCount ; i++){
         stone = createNewStone();
 
@@ -122,6 +121,7 @@ function init() {
     scene.add(stonesGroup);
     
     function createNewStone(){
+        stoneGeo = new THREE.SphereGeometry(4);
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
@@ -271,11 +271,10 @@ function init() {
 
                     if(intersect.length > 0 && intersect[0].distance < direction.length()){
                         isDead = true;
-                        
                         //console.log("Dead")
                     }
                     if(isDead){
-                        new Audio('audio/boom.mp3').play();
+                        //new Audio('audio/boom.mp3').play();
                         gameOver = true;
                         gameOverText = "Game Over ! <br/>";
                         if (parseInt(score) > topScore) {
@@ -290,6 +289,9 @@ function init() {
                         //document.getElementById("gameOverText").innerHTML = gameOverText;
                         //console.log("Score: "+parseInt(score))
                     }
+                }
+                if(isDead){
+                    new Audio('audio/boom.mp3').play();
                 }
             },1000);
             
