@@ -29,10 +29,35 @@ function init() {
 //	var axes = new THREE.AxisHelper(100);
 //	scene.add(axes);
     
-    
     ambientLight = new THREE.AmbientLight();
-    ambientLight.intensity = 0.1;
     scene.add(ambientLight);
+    
+    difficulties = {
+        easy: 0,
+        average: 1,
+        hard: 2
+    }
+    difficulty = difficulties.easy;
+    var stoneZIncreaseMin;
+    var stoneZIncreaseMax;
+    
+    switch (difficulty) {
+        case 0:
+            ambientLight.intensity = 0.8;
+            stoneZIncreaseMin = 3;
+            stoneZIncreaseMax = 3;
+            break;
+        case 1:
+            ambientLight.intensity = 0.5;
+            stoneZIncreaseMin = 3;
+            stoneZIncreaseMax = 5;
+            break;
+        case 2:
+            ambientLight.intensity = 0.3;
+            stoneZIncreaseMin = 3;
+            stoneZIncreaseMax = 7;
+            break;
+    }
     
     spotLight = new THREE.SpotLight();
     spotLight.angle = 0.3;
@@ -90,7 +115,12 @@ function init() {
     
     function createNewStone(){
         stoneGeo = new THREE.SphereGeometry(4);
-        stoneMat = new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/rock-fire.jpg"), side: THREE.DoubleSide, transparent: true , opacity: 0});
+        stoneMat = new THREE.MeshLambertMaterial({
+            map: new THREE.TextureLoader().load("img/rock-fire-2.jpg"),
+            side: THREE.DoubleSide,
+            transparent: true,
+            opacity: 0
+        });
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
@@ -153,14 +183,21 @@ function init() {
 //        collider2.push(sh);
 //        shots.add(sh);
 //    }
-
+    
     
     gameOver = false;
-    mouseClicked = false;
+    //mouseClicked = false;
     score = 1;
     if(localStorage.topScore == null){ localStorage.setItem("topScore", 0); }
     var topScore = localStorage.topScore;
+    
+//    $.getJSON("js/json.json", function(data) {
+//        topScore = data["topScore"];
+//        $("#topScore").html(topScore);
+//    });
+    
     $("#topScore").html(topScore);
+//    
     //document.getElementById("topScore").innerHTML = topScore;
     
 //    document.getElementById('output').onclick = function() {
@@ -188,23 +225,25 @@ function init() {
             spaceShipContainer.position.set(spX, spY, spZ);
             spotLight.position.set(spX, spY, spZ);
             
-            score += 0.1;
-            document.getElementById("score").innerHTML = parseInt(score);
-            if(parseInt(score) > topScore) {
-                $("#newHighScoreText").css("display", "block")
-                //document.getElementById("newHighScoreText").style.display = "block"
-            }
+            if(gameStarted == true){
+                score += 0.1;
+                document.getElementById("score").innerHTML = parseInt(score);
+                if(parseInt(score) > topScore) {
+                    $("#newHighScoreText").css("display", "block")
+                    //document.getElementById("newHighScoreText").style.display = "block"
+                }
             
-            for(i = 0 ; i < stonesGroup.children.length ; i++){
-                if(stonesGroup.children[i].position.z < cameraOrigianPosition.z){
-                    //stonesGroup.children[i].position.z += 300
-                    stonesGroup.children[i].position.x = Math.random() * (100 - -100) + -100;
-                    stonesGroup.children[i].position.y = Math.random() * (100 - -100) + -100;
-                    stonesGroup.children[i].position.z = Math.random() * (300 - 1) + 1;
-                    stonesGroup.children[i].material.opacity = 0
-                } else {
-                    stonesGroup.children[i].material.opacity += 0.05
-                    stonesGroup.children[i].position.z -= (Math.random() * (7 - 3) + 3);
+                for(i = 0 ; i < stonesGroup.children.length ; i++){
+                    if(stonesGroup.children[i].position.z < cameraOrigianPosition.z){
+                        //stonesGroup.children[i].position.z += 300
+                        stonesGroup.children[i].position.x = Math.random() * (100 - -100) + -100;
+                        stonesGroup.children[i].position.y = Math.random() * (100 - -100) + -100;
+                        stonesGroup.children[i].position.z = Math.random() * (300 - 1) + 1;
+                        stonesGroup.children[i].material.opacity = 0
+                    } else {
+                        stonesGroup.children[i].material.opacity += 0.05
+                        stonesGroup.children[i].position.z -= (Math.random() * (stoneZIncreaseMax - stoneZIncreaseMin) + stoneZIncreaseMin);
+                    }
                 }
             }
         };
