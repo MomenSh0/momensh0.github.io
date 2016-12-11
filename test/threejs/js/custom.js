@@ -108,9 +108,9 @@ function init() {
     stonesGroup = new THREE.Object3D();
     var stoneMat = new THREE.MeshLambertMaterial({
             map: new THREE.TextureLoader().load("img/rock-fire-2.jpg"),
-            side: THREE.DoubleSide,
-            transparent: true,
-            opacity: 0
+//            side: THREE.DoubleSide,
+//            transparent: true,
+//            opacity: 0
         });
     
     for (i = 0 ; i < stonesCount ; i++){
@@ -240,9 +240,9 @@ function init() {
                         stonesGroup.children[i].position.x = Math.random() * (100 - -100) + -100;
                         stonesGroup.children[i].position.y = Math.random() * (100 - -100) + -100;
                         stonesGroup.children[i].position.z = Math.random() * (300 - 1) + 1;
-                        stonesGroup.children[i].material.opacity = 0
+                        //stonesGroup.children[i].material.opacity = 0
                     } else {
-                        stonesGroup.children[i].material.opacity += 0.05
+                        //stonesGroup.children[i].material.opacity += 0.05
                         stonesGroup.children[i].position.z -= (Math.random() * (stoneZIncreaseMax - stoneZIncreaseMin) + stoneZIncreaseMin);
                     }
                 }
