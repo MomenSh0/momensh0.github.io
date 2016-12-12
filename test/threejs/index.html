@@ -9,6 +9,11 @@
     <script>
         gameStarted = false;
         var difficulty;
+        var stoneZIncreaseMin = 3;
+        var stoneZIncreaseMax = 3;
+        
+        music = new Audio('audio/thunderstruck.mp3');
+        //music.volume = 0.5;
     </script>
     
     <script src="js/jquery-3.1.1.min.js"></script>
@@ -18,7 +23,7 @@
     <script src="js/ObjectLoader.js"></script>
     <script src="js/custom.js"></script>
     
-        <script src="js/scripts.js"></script>
+    <script src="js/scripts.js"></script>
 
 </head>
 
@@ -47,10 +52,8 @@
         <div class="instructions">
             <h2>Instructions</h2>
             <p>- Use your mouse to control the spaceship.</p>
-            <p>- Press 'C' to change camera mode.</p>
-            <p>- Press 'F' to turn spaceships light on/off.</p>
-            <p>- Press 'M' to mute all sounds.</p>
-            <p>- Press 'N' to mute music only.</p>
+            <p>- Press 'F' to turn spaceships light on/off, be careful with this :D.</p>
+            <p>- Press 'M' to mute music.</p>
             <p>- The game has 3 difficulty modes (Easy, Average, Hard).</p>
             <p>- Click start to play and enter your name to save your score.</p>
         </div>
@@ -59,7 +62,7 @@
     bottom: 0px;
     left: 0px;
     color: black;
-    background-color: white;">C: change camera mode | F: turn spaceships light on/off | M: mute all sounds | N: mute music only</div>
+    background-color: white;">F: spaceships light on/off | M: mute music</div>
     <div style="cursor:none" id="output"></div>
     <div class="scores" style="display:none;position: fixed;
     top: 0;
