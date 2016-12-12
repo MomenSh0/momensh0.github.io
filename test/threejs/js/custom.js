@@ -175,7 +175,7 @@ function init() {
                     $("#newHighScoreText").css("display", "block")
                 }
                 
-                if(parseInt(score) > (scoreWhenLastBlast+500) && scoreWhenLastBlast != -1){
+                if(parseInt(score) > (scoreWhenLastBlast+50) && scoreWhenLastBlast != -1){
                     canBlast = 1;
                     blasterFinished = 0;
                     document.getElementById("blaster").innerHTML = "ON";
