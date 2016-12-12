@@ -19,8 +19,6 @@
     <script src="js/jquery-3.1.1.min.js"></script>
 
     <script src="js/three.min.js"></script>
-    <script src="js/TrackballControls.js"></script>
-    <script src="js/ObjectLoader.js"></script>
     <script src="js/custom.js"></script>
     
     <script src="js/scripts.js"></script>
@@ -42,9 +40,9 @@
             <input id="nameInput" type="text">
             <p class="nameWarning" style="color:red;display:none">Please enter a name</p>
             <div style="margin-top:10px;color:white">
-                <input type="radio" name="difficulty" value="0" checked> Easy
-                <input type="radio" name="difficulty" value="1"> Average
-                <input type="radio" name="difficulty" value="2"> Hard
+                <input id="ez" type="radio" name="difficulty" value="0" checked> <label for="ez">Easy</label>
+                <input id="av" type="radio" name="difficulty" value="1"> <label for="av">Average</label>
+                <input id="hd" type="radio" name="difficulty" value="2"> <label for="hd">Hard</label>
             </div>
             <div id="gameStartBtn" class="button">Go !</div>
             <span id="backBtn">back</span>
@@ -52,8 +50,9 @@
         <div class="instructions">
             <h2>Instructions</h2>
             <p>- Use your mouse to control the spaceship.</p>
-            <p>- Press 'F' to turn spaceships light on/off, be careful with this :D.</p>
             <p>- Press 'M' to mute music.</p>
+            <p>- Press 'B' to use the blaster.</p>
+            <p>- You have 1 blaster shot you can use<br>the blaster will be reloaded whenever your score increased by 500 points.</p>
             <p>- The game has 3 difficulty modes (Easy, Average, Hard).</p>
             <p>- Click start to play and enter your name to save your score.</p>
         </div>
@@ -62,7 +61,7 @@
     bottom: 0px;
     left: 0px;
     color: black;
-    background-color: white;">F: spaceships light on/off | M: mute music</div>
+    background-color: white;">M: mute music | B: BLAST !</div>
     <div style="cursor:none" id="output"></div>
     <div class="scores" style="display:none;position: fixed;
     top: 0;
@@ -88,6 +87,15 @@
     padding: 10px 18px;
     font-size: 15px;
     color: black;">New High Score !</div>
+    
+    <div class="blaster" style="position:fixed;
+    display:none;
+    right:0;
+    bottom:0;
+    background-color:white;
+    font-size:30px;
+    color:black;
+    padding: 10px;">Blaster: <span id="blaster">ON</span></div>
     
     <div style="display:none;
     width: 100%;
