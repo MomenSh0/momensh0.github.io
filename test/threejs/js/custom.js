@@ -1,10 +1,13 @@
 function init() {
     var scene = new THREE.Scene();
     
-   //scene.fog = new THREE.Fog(0x1c1c1c, 0.015, 300);
+   scene.fog = new THREE.FogExp2(0x000000, 0.001);
+    
+    boom = new Audio('audio/boom.mp3');
+    boom.volume = 0.2;
     
     var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    cameraOrigianPosition = {x: 0, y: 10, z: -200}
+    cameraOrigianPosition = {x: 0, y: 0, z: -200}
     camera.position.set(cameraOrigianPosition.x, cameraOrigianPosition.y, cameraOrigianPosition.z);
     camera.lookAt(scene.position);
     
@@ -32,32 +35,32 @@ function init() {
     ambientLight = new THREE.AmbientLight();
     scene.add(ambientLight);
     
-    difficulties = {
-        easy: 0,
-        average: 1,
-        hard: 2
-    }
-    difficulty = difficulties.easy;
-    var stoneZIncreaseMin;
-    var stoneZIncreaseMax;
-    
-    switch (difficulty) {
-        case 0:
-            ambientLight.intensity = 0.8;
-            stoneZIncreaseMin = 3;
-            stoneZIncreaseMax = 3;
-            break;
-        case 1:
-            ambientLight.intensity = 0.5;
-            stoneZIncreaseMin = 3;
-            stoneZIncreaseMax = 5;
-            break;
-        case 2:
-            ambientLight.intensity = 0.3;
-            stoneZIncreaseMin = 3;
-            stoneZIncreaseMax = 7;
-            break;
-    }
+//    difficulties = {
+//        easy: 0,
+//        average: 1,
+//        hard: 2
+//    }
+//    difficulty = difficulties.easy;
+//    var stoneZIncreaseMin;
+//    var stoneZIncreaseMax;
+//    
+//    switch (difficulty) {
+//        case 0:
+//            ambientLight.intensity = 0.8;
+//            stoneZIncreaseMin = 3;
+//            stoneZIncreaseMax = 3;
+//            break;
+//        case 1:
+//            ambientLight.intensity = 0.5;
+//            stoneZIncreaseMin = 3;
+//            stoneZIncreaseMax = 5;
+//            break;
+//        case 2:
+//            ambientLight.intensity = 0.3;
+//            stoneZIncreaseMin = 3;
+//            stoneZIncreaseMax = 7;
+//            break;
+//    }
     
     spotLight = new THREE.SpotLight();
     spotLight.angle = 0.3;
@@ -140,7 +143,7 @@ function init() {
 //    scene.add(spaceShip);
 //    spaceShipLoaded = true;
     
-    spaceShipContainerGeo = new THREE.BoxGeometry(4,3,8);
+    spaceShipContainerGeo = new THREE.BoxGeometry(4,2.5,8);
     spaceShipContainerMat = new THREE.MeshBasicMaterial({color: 0xa3a3a3, transparent: true, opacity: 0});
     spaceShipContainer = new THREE.Mesh(spaceShipContainerGeo, spaceShipContainerMat);
     //xyz = spaceShip.position.clone();
@@ -204,6 +207,28 @@ function init() {
 //    document.getElementById('output').onclick = function() {
 //        mouseClicked = true;
 //    }
+
+    
+    // Keyboard events
+    window.onkeydown = onKeyDown
+    window.onkeyup = onKeyUp
+    function onKeyDown(ev){
+        if(ev.keyCode == 70){//F
+            if(spotLight.intensity == 1){
+                spotLight.intensity = 0.2;
+            } else {
+                spotLight.intensity = 1;
+            }
+        }
+        if(ev.keyCode == 77){
+            if(music.paused){
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+    }
+    function onKeyUp(ev){}
     
     function update(){
         
@@ -287,7 +312,7 @@ function init() {
                         $("#gameOverText").html(gameOverText)
                         //document.getElementById("gameOverText").innerHTML = gameOverText;
                         //console.log("Score: "+parseInt(score))
-                        boom = new Audio('audio/boom.mp3').play();
+                        boom.play();
                         boom.addEventListener("ended", function(){
                             boom.pause();
                         });
@@ -360,6 +385,7 @@ function init() {
             update();
         } else {
             $("#gameOver").show()
+            music.pause();
             //document.getElementById("gameOver").style.display = "block"
         }
         //track.update();
