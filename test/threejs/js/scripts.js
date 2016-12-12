@@ -16,6 +16,7 @@ $(document).ready( function() {
         if($("#nameInput").val() != ''){
             $(".scores").show();
             $(".bottomInstructions").show();
+            $(".blaster").show();
             $("#gameStartUI").fadeOut("slow",function(){
                 d = parseInt($('input[name=difficulty]:checked').val());                
                 difficulty = d;
