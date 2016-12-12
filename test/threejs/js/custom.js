@@ -1,7 +1,7 @@
 function init() {
     var scene = new THREE.Scene();
     
-   scene.fog = new THREE.FogExp2(0x000000, 0.001);
+    scene.fog = new THREE.FogExp2(0x000000, 0.001);
     
     boom = new Audio('audio/boom.mp3');
     boom.volume = 0.2;
@@ -13,9 +13,7 @@ function init() {
     
     var renderer = new THREE.WebGLRenderer();
     renderer.setClearColor(0xEEEEEE);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    //var track = new THREE.TrackballControls(camera);
-    
+    renderer.setSize(window.innerWidth, window.innerHeight);    
     
     // Window resize event -- adaptive layout
     window.addEventListener('resize', function () {
@@ -26,41 +24,9 @@ function init() {
         camera.updateProjectionMatrix();
         console.log("resize")
     })
-
-    
-    // Axes
-//	var axes = new THREE.AxisHelper(100);
-//	scene.add(axes);
     
     ambientLight = new THREE.AmbientLight();
     scene.add(ambientLight);
-    
-//    difficulties = {
-//        easy: 0,
-//        average: 1,
-//        hard: 2
-//    }
-//    difficulty = difficulties.easy;
-//    var stoneZIncreaseMin;
-//    var stoneZIncreaseMax;
-//    
-//    switch (difficulty) {
-//        case 0:
-//            ambientLight.intensity = 0.8;
-//            stoneZIncreaseMin = 3;
-//            stoneZIncreaseMax = 3;
-//            break;
-//        case 1:
-//            ambientLight.intensity = 0.5;
-//            stoneZIncreaseMin = 3;
-//            stoneZIncreaseMax = 5;
-//            break;
-//        case 2:
-//            ambientLight.intensity = 0.3;
-//            stoneZIncreaseMin = 3;
-//            stoneZIncreaseMax = 7;
-//            break;
-//    }
     
     spotLight = new THREE.SpotLight();
     spotLight.angle = 0.3;
@@ -70,18 +36,16 @@ function init() {
     
     
     // Collider array
-    var collider = []
-    var collider2 = []
-    
+    var collider = []        
     
     // Skybox
     skyBoxGeo = new THREE.BoxGeometry(512,512,512)
     faces = [
         new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/purplenebula_rt.png"), side: THREE.DoubleSide, fog: false}),//Right
-        new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/purplenebula_lf.png"), side: THREE.DoubleSide, fog: false}),//Left
-        new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/purplenebula_up.png"), side: THREE.DoubleSide, fog: false}),//Top
-        new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/purplenebula_dn.png"), side: THREE.DoubleSide, fog: false}),//Bottom
-        new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/purplenebula_bk.png"), side: THREE.DoubleSide, fog: false}),//Front
+        new THREE.MeshBasicMaterial(0x000000),//Left
+        new THREE.MeshBasicMaterial(0x000000),//Top
+        new THREE.MeshBasicMaterial(0x000000),//Bottom
+        new THREE.MeshBasicMaterial(0x000000),//Front
         new THREE.MeshLambertMaterial({map: new THREE.TextureLoader().load("img/purplenebula_ft.png"), side: THREE.DoubleSide, fog: false}),//Back
     ]
     
@@ -101,7 +65,6 @@ function init() {
         //spaceShip.position.set(spaceShipOrigianPosition.x, spaceShipOrigianPosition.y, spaceShipOrigianPosition.z);
         spaceShip.position.z = -170;
         //spaceShip.scale = 0.1
-        //collider.push(spaceShip)
         scene.add(spaceShip);
         spaceShipLoaded = true
     });
@@ -133,15 +96,8 @@ function init() {
         //stone.position.z = 500
         
         collider.push(stone)
-        collider2.push(stone)
         return stone;
     }
-    
-//    spaceShipGeo = new THREE.BoxGeometry(4,4,4);
-//    spaceShipMat = new THREE.MeshBasicMaterial(0xa3a3a3);
-//    spaceShip = new THREE.Mesh(spaceShipGeo, spaceShipMat);
-//    scene.add(spaceShip);
-//    spaceShipLoaded = true;
     
     spaceShipContainerGeo = new THREE.BoxGeometry(4,2.5,8);
     spaceShipContainerMat = new THREE.MeshBasicMaterial({color: 0xa3a3a3, transparent: true, opacity: 0});
@@ -171,60 +127,33 @@ function init() {
         //spaceShip.position.z = -170;
     };
     
-//    shots = new THREE.Object3D();
-//    scene.add(shots);
-//    isShooting = false;
-//    function shoot(){
-//        shGeo = new THREE.BoxGeometry(1,1,1);
-//        shMat = new THREE.MeshLambertMaterial({color: 0xff0000});
-//        sh = new THREE.Mesh(shGeo, shMat);
-//        //if(shots.children.length > 0){
-//            //console.log(shots.children.length-1)
-//            sh.name = "shot-"+String(shots.children.length)
-//        //}
-//        sh.position.set(spaceShipContainer.position.x, spaceShipContainer.position.y, spaceShipContainer.position.z);
-//        isShooting = true;
-//        collider2.push(sh);
-//        shots.add(sh);
-//    }
-    
-    
     gameOver = false;
-    //mouseClicked = false;
     score = 1;
     if(localStorage.topScore == null){ localStorage.setItem("topScore", 0); }
     var topScore = localStorage.topScore;
     
-//    $.getJSON("js/json.json", function(data) {
-//        topScore = data["topScore"];
-//        $("#topScore").html(topScore);
-//    });
-    
     $("#topScore").html(topScore);
-//    
-    //document.getElementById("topScore").innerHTML = topScore;
     
-//    document.getElementById('output').onclick = function() {
-//        mouseClicked = true;
-//    }
-
+    blaster = 0;
+    blasterFinished = 0;
+    canBlast = 1;
+    scoreWhenLastBlast = -1;
     
     // Keyboard events
     window.onkeydown = onKeyDown
     window.onkeyup = onKeyUp
     function onKeyDown(ev){
-        if(ev.keyCode == 70){//F
-            if(spotLight.intensity == 1){
-                spotLight.intensity = 0.2;
-            } else {
-                spotLight.intensity = 1;
-            }
-        }
-        if(ev.keyCode == 77){
+        //console.log(ev.keyCode);
+        if(ev.keyCode == 77){//M
             if(music.paused){
                 music.play();
             } else {
                 music.pause();
+            }
+        }
+        if(ev.keyCode == 66){//B
+            if(canBlast == 1){
+                blaster = 1;
             }
         }
     }
@@ -232,18 +161,6 @@ function init() {
     
     function update(){
         
-//        if(mouseClicked){
-//            shoot()
-//            console.log(shots);
-//            mouseClicked = false;
-//        }
-//        
-//        if(shots.children.length > 0){
-//            for(i = 0 ; i < shots.children.length ; i++){
-//                shots.children[i].position.z += 2;
-//            }
-//        }
-//        
         if(spaceShipLoaded == true) {
             spX = spaceShip.position.x;
             spY = spaceShip.position.y - 2;
@@ -256,19 +173,43 @@ function init() {
                 document.getElementById("score").innerHTML = parseInt(score);
                 if(parseInt(score) > topScore) {
                     $("#newHighScoreText").css("display", "block")
-                    //document.getElementById("newHighScoreText").style.display = "block"
                 }
-            
-                for(i = 0 ; i < stonesGroup.children.length ; i++){
-                    if(stonesGroup.children[i].position.z < cameraOrigianPosition.z){
-                        //stonesGroup.children[i].position.z += 300
-                        stonesGroup.children[i].position.x = Math.random() * (100 - -100) + -100;
-                        stonesGroup.children[i].position.y = Math.random() * (100 - -100) + -100;
-                        stonesGroup.children[i].position.z = Math.random() * (300 - 1) + 1;
-                        //stonesGroup.children[i].material.opacity = 0
-                    } else {
-                        //stonesGroup.children[i].material.opacity += 0.05
-                        stonesGroup.children[i].position.z -= (Math.random() * (stoneZIncreaseMax - stoneZIncreaseMin) + stoneZIncreaseMin);
+                
+                if(parseInt(score) > (scoreWhenLastBlast+500) && scoreWhenLastBlast != -1){
+                    canBlast = 1;
+                    blasterFinished = 0;
+                    document.getElementById("blaster").innerHTML = "ON";
+                }
+                
+                if(blaster == 1 && blasterFinished == 0){
+                    for(i = 0 ; i < stonesGroup.children.length ; i++){
+                        stonesGroup.children[i].position.z -= Math.random() * (2 - 1) + 1;
+                        stonesGroup.children[i].position.z += Math.random() * (2 - 1) + 1;
+                    }
+                    setTimeout(function(){
+                        for(i = 0 ; i < stonesGroup.children.length ; i++){
+                            stonesGroup.children[i].position.z += 5;
+                        }
+                    },1000);
+                    if(stonesGroup.children[100].position.z >= 200){
+                        blasterFinished = 1;
+                        canBlast = 0;
+                        blaster = 0;
+                        document.getElementById("blaster").innerHTML = "OFF";
+                        scoreWhenLastBlast = parseInt(score);
+                    }
+                } else {
+                    for(i = 0 ; i < stonesGroup.children.length ; i++){
+                        if(stonesGroup.children[i].position.z < cameraOrigianPosition.z){
+                            //stonesGroup.children[i].position.z += 300
+                            stonesGroup.children[i].position.x = Math.random() * (100 - -100) + -100;
+                            stonesGroup.children[i].position.y = Math.random() * (100 - -100) + -100;
+                            stonesGroup.children[i].position.z = Math.random() * (300 - 1) + 1;
+                            //stonesGroup.children[i].material.opacity = 0
+                        } else {
+                            //stonesGroup.children[i].material.opacity += 0.05
+                            stonesGroup.children[i].position.z -= (Math.random() * (stoneZIncreaseMax - stoneZIncreaseMin) + stoneZIncreaseMin);
+                        }
                     }
                 }
             }
@@ -303,14 +244,11 @@ function init() {
                         gameOverText = "Game Over ! <br/>";
                         if (parseInt(score) > topScore) {
                             localStorage.setItem("topScore", parseInt(score))
-                            $("#topScore").html(parseInt(score))
-                            //document.getElementById("topScore").innerHTML = parseInt(score);
-                            
+                            $("#topScore").html(parseInt(score))                            
                             gameOverText += "<br/> <span style='color:green'>New High Score !</span> <br/>";
                         }
                         gameOverText += "<br> Click to play again."
                         $("#gameOverText").html(gameOverText)
-                        //document.getElementById("gameOverText").innerHTML = gameOverText;
                         //console.log("Score: "+parseInt(score))
                         boom.play();
                         boom.addEventListener("ended", function(){
@@ -321,59 +259,6 @@ function init() {
             },1000);
             
         }
-        
-//        if(shots.children.length > 0){
-//            var index
-//            namesToRemove = []
-//            for(i = 0 ; i < shots.children.length ; i++){
-//                console.log("i : "+i);
-//                console.log("chl : "+shots.children.length)
-//                index = i;
-//                shots.children[i].updateMatrix()
-//                originPoint = shots.children[i].position.clone()
-//
-//                for(vertex=0 ; vertex < shots.children[i].geometry.vertices.length ; vertex++){
-//
-//                    localVertex = shots.children[i].geometry.vertices[vertex].clone()
-//                    globalVertex = localVertex.applyMatrix4(shots.children[i].matrix)
-//                    direction = globalVertex.sub(shots.children[i].position)
-//
-//                    ray = new THREE.Raycaster(originPoint, direction.clone().normalize())
-//                    intersect = ray.intersectObjects(collider2)
-//
-//                    if(intersect.length > 0 && intersect[0].distance < direction.length()){
-//                        childName = shots.children[i].name;
-//                        if(namesToRemove.indexOf(childName) == -1){
-//                             console.log(intersect);
-//                            //console.log(shots.children[i].name);
-//                            //console.log(intersect)
-//                            //intersect[0].object.position.z += 100
-//                            intersect[0].object.position.x = Math.random() * (100 - -100) + -100;
-//                            intersect[0].object.position.y = Math.random() * (100 - -100) + -100;
-//                            intersect[0].object.position.z = Math.random() * (300 - 1) + 1;
-//                            //scene.remove(scene.getObjectByName(shots.children[i].name))
-//                            namesToRemove.push(childName);
-//                            //shots.remove(shots.getChildByName(shots.children[i].name))
-//                            //collider2.shift();
-//                            //shots.children[i].position.y = 500;
-//                            //shots.remove(shots.children[0])
-//    //                        if(intersect[0].mesh.object instanceof THREE.SphereGeometry) {
-//    //                            console.log(intersect);
-//    //    //                        shots.remove(shots.children[i]);
-//    //    //                        intersect[1].position.z += 100
-//    //                        }   
-//                        }
-//                        
-//                    }
-//                }
-//                if(namesToRemove.length > 0){
-//                    for(i = 0 ; i < namesToRemove.length ; i++){
-//                        shots.remove(shots.getObjectByName(namesToRemove[i]))
-//                    }
-//                }
-//            }
-//        }
-        
         renderer.render(scene, camera);
         requestAnimationFrame(render);
     }
@@ -386,9 +271,7 @@ function init() {
         } else {
             $("#gameOver").show()
             music.pause();
-            //document.getElementById("gameOver").style.display = "block"
         }
-        //track.update();
 
     }
     document.getElementById("output").appendChild(renderer.domElement);
