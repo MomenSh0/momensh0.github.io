@@ -24,7 +24,7 @@ function init() {
         renderer.setSize(width, height);
         camera.aspect = width / height;
         camera.updateProjectionMatrix();
-        console.log("resize")
+        //console.log("resize")
     })
     
     ambientLight = new THREE.AmbientLight();
