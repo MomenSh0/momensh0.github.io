@@ -5,6 +5,8 @@ function init() {
     
     boom = new Audio('audio/boom.mp3');
     boom.volume = 0.2;
+    blasterSound = new Audio('audio/blaster.mp3');
+    blasterSound.volume = 0.5;
     
     var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
     cameraOrigianPosition = {x: 0, y: 0, z: -200}
@@ -154,6 +156,11 @@ function init() {
         if(ev.keyCode == 66){//B
             if(canBlast == 1){
                 blaster = 1;
+                blasterSound.play();
+                music.volume = 0.3;
+                blasterSound.addEventListener("ended", function(){
+                    music.volume = 1;
+                });
             }
         }
     }
@@ -175,7 +182,7 @@ function init() {
                     $("#newHighScoreText").css("display", "block")
                 }
                 
-                if(parseInt(score) > (scoreWhenLastBlast+50) && scoreWhenLastBlast != -1){
+                if(parseInt(score) > (scoreWhenLastBlast+500) && scoreWhenLastBlast != -1){
                     canBlast = 1;
                     blasterFinished = 0;
                     document.getElementById("blaster").innerHTML = "ON";
