@@ -1,4 +1,10 @@
 $(document).ready( function() {
+    
+    $.ajax({url: "https://script.google.com/macros/s/AKfycbzPxn0GgPN5gVYi9h8yk6nejt2q3qtu12_C2UtfjmhVh2RjmDXS/exec", success: function(result){
+        console.log(result);
+    }});
+    
+    
     //Start button click event
     $("#startBtn").click(function(){
         $("#UI1").fadeOut(function(){
