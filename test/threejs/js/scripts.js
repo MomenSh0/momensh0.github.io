@@ -54,6 +54,6 @@ $(document).ready( function() {
     
     //Buttons hover sound effect
     $(".button").mouseover(function(){
-        new Audio('audio/button_hover.mp3').play();
+        button_hover.play();
     });
 });
