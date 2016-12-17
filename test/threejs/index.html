@@ -2,40 +2,46 @@
 <html>
 <head>
     <title>Spaceship Fighter</title>
-    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
     <meta charset="utf-8" />    
     <link rel="stylesheet" href="css/custom.css" />
     <link rel="stylesheet" href="css/animations.min.css">
     
     <script>
         gameStarted = false;
+        var playerName;
+        var playerScore;
         var difficulty;
+        var difficultyText;
+        var globalTopScore = 0;
         var stoneZIncreaseMin = 3;
         var stoneZIncreaseMax = 3;
         
-        music = new Audio('audio/thunderstruck.mp3');
-        //music.volume = 0.5;
+        music = new Audio('audio/music-2.mp3');
+        music.volume = 0.5;
         //music.play();
     </script>
     
     <script src="js/jquery-3.1.1.min.js"></script>
     <script src="js/pace.min.js"></script>
 
-    <script src="js/three.min.js"></script>
-    <script src="js/custom.js"></script>
-    
+    <script src="js/three.min.js"></script>    
     <script src="js/scripts.js"></script>
+    <script src="js/custom.js"></script>
 
 </head>
 
 <body>
+    <div style="background-color: black;
+    width: 100%;
+    height: 100vh;" id="blackScreen">s</div>
     <div id="gameStartUI" class="">
         <div id="UI1" class="floating">
             <h1 class="">Spaceship Fighter</h1>
             <h1 class="">Welcome, Captain !</h1>
             <div class="buttons">
                 <div id="startBtn" class="button">Start</div>
-                <div id="leaderboardBtn" class="button">Leaderboard<span style="font-size:10px;color:#00ff39"> Soon</span></div>
+                <div id="leaderboardBtn" class="button">Leaderboard<span style="font-size:10px;color:#00ff39"> </span></div>
             </div>
         </div>
         <div id="UI2" class="floating">
@@ -48,7 +54,23 @@
                 <input id="hd" type="radio" name="difficulty" value="2"> <label for="hd">Hard</label>
             </div>
             <div id="gameStartBtn" class="button">Go !</div>
-            <span id="backBtn">back</span>
+            <span class="backBtn" id="backBtn">back</span>
+        </div>
+        <div id="leaderboard" class="floating">
+            <h2>Leaderboard - Top 10 Scores</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Difficulty</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboardBody">
+                </tbody>
+            </table>
+            <span class="backBtn" id="leaderboardBackBtn">back</span>
         </div>
         <div class="instructions">
             <h2>Instructions</h2>
@@ -60,12 +82,12 @@
             <p>- Click start to play and enter your name to save your score.</p>
         </div>
     </div>
+    <div style="cursor:none" id="output"></div>
     <div class="bottomInstructions" style="display:none;position: fixed;
     bottom: 0px;
     left: 0px;
     color: black;
     background-color: white;">M: mute music | B: BLAST !</div>
-    <div style="cursor:none" id="output"></div>
     <div class="scores" style="display:none;position: fixed;
     top: 0;
     left: 0;
