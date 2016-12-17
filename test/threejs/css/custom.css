@@ -5,6 +5,7 @@
 * {
     padding: 0;
     margin: 0;
+    outline: none;
 }
 body,
 html {
@@ -78,9 +79,32 @@ html {
 #gameStartUI #UI2 .button {
     margin-bottom: 10px;
 }
-#backBtn {
+.backBtn {
     color: white;
     cursor: pointer;
+}
+
+
+#leaderboard {
+    display: none;
+    padding-top: 50px;
+}
+#leaderboard h2 {
+    color: white;
+    margin-bottom: 10px
+}
+#leaderboard table {
+    //text-align: center;
+    margin: 0 auto;
+    //margin-top: 15px;
+    color: white;
+    border: 1px solid white;
+}
+#leaderboard table tr, #leaderboard table td, #leaderboard table th {
+    border: none;
+    padding: 10px;
+    width: auto;
+    text-align: left;
 }
 
 
