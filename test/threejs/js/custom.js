@@ -74,22 +74,20 @@ function init() {
     
     stonesCount = 200;
     stonesGroup = new THREE.Object3D();
+    var stoneGeo = new THREE.SphereGeometry(4);
     var stoneMat = new THREE.MeshLambertMaterial({
             map: new THREE.TextureLoader().load("img/rock-fire-2.jpg"),
-//            side: THREE.DoubleSide,
+            //side: THREE.DoubleSide,
 //            transparent: true,
 //            opacity: 0
         });
     
     for (i = 0 ; i < stonesCount ; i++){
-        stone = createNewStone();
-
-        stonesGroup.add(stone);
+        stonesGroup.add(createNewStone());
     }
     scene.add(stonesGroup);
     
     function createNewStone(){
-        stoneGeo = new THREE.SphereGeometry(4);
         stone = new THREE.Mesh(stoneGeo, stoneMat);
 
         stone.position.x = Math.random() * (100 - -100) + -100;
@@ -131,10 +129,12 @@ function init() {
     
     gameOver = false;
     score = 1;
-    if(localStorage.topScore == null){ localStorage.setItem("topScore", 0); }
-    var topScore = localStorage.topScore;
+    //if(localStorage.topScore == null){ localStorage.setItem("topScore", 0); }
+    //var topScore = localStorage.topScore;
+    var topScore = globalTopScore;
+    //console.log(globalTopScore);
     
-    $("#topScore").html(topScore);
+    $("#topScore").html(globalTopScore);
     
     blaster = 0;
     blasterFinished = 0;
@@ -147,19 +147,21 @@ function init() {
     function onKeyDown(ev){
         //console.log(ev.keyCode);
         if(ev.keyCode == 77){//M
-            if(music.paused){
-                music.play();
-            } else {
-                music.pause();
+            if(gameStarted){
+                if(music.paused){
+                    music.play();
+                } else {
+                    music.pause();
+                }
             }
         }
         if(ev.keyCode == 66){//B
-            if(canBlast == 1){
+            if(canBlast == 1 && !gameOver){
                 blaster = 1;
                 blasterSound.play();
                 music.volume = 0.3;
                 blasterSound.addEventListener("ended", function(){
-                    music.volume = 1;
+                    music.volume = 0.5;
                 });
             }
         }
@@ -178,14 +180,15 @@ function init() {
             if(gameStarted == true){
                 score += 0.1;
                 document.getElementById("score").innerHTML = parseInt(score);
-                if(parseInt(score) > topScore) {
+                //if(parseInt(score) > topScore) {
+                if(parseInt(score) > globalTopScore) {
                     $("#newHighScoreText").css("display", "block")
                 }
                 
                 if(parseInt(score) > (scoreWhenLastBlast+500) && scoreWhenLastBlast != -1){
                     canBlast = 1;
                     blasterFinished = 0;
-                    document.getElementById("blaster").innerHTML = "ON";
+                    $("#blaster").text("ON");
                 }
                 
                 if(blaster == 1 && blasterFinished == 0){
@@ -202,7 +205,7 @@ function init() {
                         blasterFinished = 1;
                         canBlast = 0;
                         blaster = 0;
-                        document.getElementById("blaster").innerHTML = "OFF";
+                        $("#blaster").text("OFF");
                         scoreWhenLastBlast = parseInt(score);
                     }
                 } else {
@@ -249,8 +252,9 @@ function init() {
                     if(isDead){
                         gameOver = true;
                         gameOverText = "Game Over ! <br/>";
-                        if (parseInt(score) > topScore) {
-                            localStorage.setItem("topScore", parseInt(score))
+                        //if (parseInt(score) > topScore) {
+                        if (parseInt(score) > globalTopScore) {
+                            //localStorage.setItem("topScore", parseInt(score))
                             $("#topScore").html(parseInt(score))                            
                             gameOverText += "<br/> <span style='color:green'>New High Score !</span> <br/>";
                         }
@@ -258,9 +262,9 @@ function init() {
                         $("#gameOverText").html(gameOverText)
                         //console.log("Score: "+parseInt(score))
                         boom.play();
-                        boom.addEventListener("ended", function(){
-                            boom.pause();
-                        });
+//                        boom.addEventListener("ended", function(){
+//                            boom.pause();
+//                        });
                     }
                 }
             },1000);
@@ -273,10 +277,19 @@ function init() {
     
     // Render
     function render() {
-        if(!gameOver){
+        if(gameOver != true){
             update();
+            $("#topScore").html(globalTopScore);
         } else {
             $("#gameOver").show()
+            if(typeof playerName != 'undefined'){
+                playerScore = parseInt(score);
+                $.ajax({url: "https://script.google.com/macros/s/AKfycbyyc-5NIpMYRKJCM9lGtdbzUQQfebnVMHKVFjAtwGgv2K9VnvY/exec?id="+playerName+"&score="+playerScore+"&difficulty="+difficultyText, success: function(result){
+                    if(result.result == "success"){
+                        console.log("score saved");
+                    }
+                }});
+            }
             music.pause();
         }
 
